@@ -33,7 +33,7 @@ export default async function UserDropdown() {
       <DropdownItem>Settings</DropdownItem>
       <DropdownItem>Earnings</DropdownItem>
       <DropdownDivider />
-      <DropdownItem onClick={handleLogout}>Sign-Out</DropdownItem>
+      <DropdownItem onClick={handleLogout}>Déconnexion</DropdownItem>
     </Dropdown>
   )
 }
