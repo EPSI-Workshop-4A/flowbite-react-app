@@ -4,6 +4,7 @@ import { ThemeModeScript } from "flowbite-react";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,9 +24,12 @@ export default function RootLayout({
       <head>
         <ThemeModeScript />
       </head>
-      <body className="dark:bg-slate-500">
+      <body className="dark:bg-slate-500 flex flex-col min-h-screen">
         <Navbar />
+        <div className="flex-auto">
         {children}
+        </div>
+        <Footer />
       </body>
     </html>
     </SessionProvider>

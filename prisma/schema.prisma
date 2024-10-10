@@ -26,6 +26,18 @@ model User {
     updatedAt     DateTime  @updatedAt
 }
 
+model Consultant {
+    id             Int     @id @default(autoincrement())
+    nom            String
+    specialite     String
+    ville          String
+    code_postal    String
+    adresse        String
+    note           Float?
+    description    String?
+    annee_exercice Int
+}
+
 model Account {
     userId            String
     type              String
