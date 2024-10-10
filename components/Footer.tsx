@@ -5,7 +5,7 @@ import {Footer as FlowbiteFooter} from 'flowbite-react';
 export default async function Footer() {
   return (
     <FlowbiteFooter container>
-      <FlowbiteFooter.Copyright href="#" by="Flowbite™" year={2022} />
+      <FlowbiteFooter.Copyright href="/" by="GénéaSanté" year={2024} />
       <FlowbiteFooter.LinkGroup>
         <FlowbiteFooter.Link href="#">Mention Légale</FlowbiteFooter.Link>
         <FlowbiteFooter.Link href="pdp">Privacy Policy</FlowbiteFooter.Link>

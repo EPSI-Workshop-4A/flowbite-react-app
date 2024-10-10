@@ -1,17 +1,21 @@
-import UserTree from "@/components/Tree";
+import { auth } from "@/auth";
+import UserTree from "@/components/UserTree";
 import UserDrawer from "@/components/UserDrawer";
+import { prisma } from "@/prisma";
 
-export default function Page() {
+export default async function Page() {
+  const session = await auth()
+
+  let tree = await prisma.familyTree.findFirst({
+    where: {
+      userId: session?.user?.id
+    }
+  });
+
   return (
     <>
       <UserDrawer />
-      <UserTree nodes={[
-        { id: 1, pids: [2], name: 'Amber McKenzie', gender: 'female', img: 'https://cdn.balkan.app/shared/2.jpg' },
-        { id: 2, pids: [1], name: 'Ava Field', gender: 'male', img: 'https://cdn.balkan.app/shared/m30/5.jpg' },
-        { id: 3, mid: 1, fid: 2, name: 'Peter Stevens', birtdate: new Date(), gender: 'male', img: 'https://cdn.balkan.app/shared/m10/2.jpg' },
-        { id: 4, mid: 1, fid: 2, name: 'Savin Stevens', gender: 'male', img: 'https://cdn.balkan.app/shared/m10/1.jpg' },
-        { id: 5, mid: 1, fid: 2, name: 'Emma Stevens', gender: 'female', img: 'https://cdn.balkan.app/shared/w10/3.jpg' }
-      ]} />
+      <UserTree nodes={tree?.tree} />
     </>
   );
 };

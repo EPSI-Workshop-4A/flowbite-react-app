@@ -14,16 +14,17 @@ datasource db {
 }
 
 model User {
-    id            String    @id @default(cuid())
-    email         String    @unique
+    id            String       @id @default(cuid())
+    email         String       @unique
     name          String?
     emailVerified Boolean?
     username      String?
     image         String?
     accounts      Account[]
     sessions      Session[]
-    createdAt     DateTime  @default(now())
-    updatedAt     DateTime  @updatedAt
+    createdAt     DateTime     @default(now())
+    updatedAt     DateTime     @updatedAt
+    familyTrees   FamilyTree[]
 }
 
 model Consultant {
@@ -64,4 +65,11 @@ model Session {
     user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
     createdAt    DateTime @default(now())
     updatedAt    DateTime @updatedAt
+}
+
+model FamilyTree {
+    id     Int     @id @default(autoincrement())
+    tree   Json
+    User   User?   @relation(fields: [userId], references: [id])
+    userId String?
 }

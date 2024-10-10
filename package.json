@@ -8,12 +8,16 @@
     "start": "next start",
     "format": "prettier . --write",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prisma:generate": "dotenv -e .env.local -- npx prisma generate",
+    "prisma:migrate": "dotenv -e .env.local -- npx prisma migrate dev",
+    "prisma:migration": "dotenv -e .env.local -- npx prisma migrate dev --create-only"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.6.0",
     "@balkangraph/familytree.js": "^1.9.44",
     "@prisma/client": "^5.20.0",
+    "dotenv-cli": "^7.4.2",
     "flowbite-react": "^0.10.2",
     "i": "^0.3.7",
     "next": "^14.2.15",
