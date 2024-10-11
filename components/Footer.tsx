@@ -8,7 +8,7 @@ export default async function Footer() {
       <FlowbiteFooter.Copyright href="/" by="GénéaSanté" year={2024} />
       <FlowbiteFooter.LinkGroup>
         <FlowbiteFooter.Link href="#">Mention Légale</FlowbiteFooter.Link>
-        <FlowbiteFooter.Link href="pdp">Privacy Policy</FlowbiteFooter.Link>
+        <FlowbiteFooter.Link href="pdp">Protection des données</FlowbiteFooter.Link>
         <FlowbiteFooter.Link href="#">Licensing</FlowbiteFooter.Link>
         <FlowbiteFooter.Link href="#">Contact</FlowbiteFooter.Link>
       </FlowbiteFooter.LinkGroup>

@@ -23,15 +23,27 @@ export async function POST(request: Request) {
     return NextResponse.json(consultant);
   } catch (error) {
     console.error(error);
-    
     return NextResponse.json({ error: "Erreur lors de l'ajout du consultant" }, { status: 500 });
   }
 }
 
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const nom = searchParams.get('nom');
+  const specialite = searchParams.get('specialite');
+  const ville = searchParams.get('ville');
 
-export async function GET() {
   try {
-    const consultants = await prisma.consultant.findMany();
+    const consultants = await prisma.consultant.findMany({
+      where: {
+        AND: [
+          nom ? { nom: { contains: nom, mode: 'insensitive' } } : {},
+          specialite ? { specialite: { contains: specialite, mode: 'insensitive' } } : {},
+          ville ? { ville: { contains: ville, mode: 'insensitive' } } : {},
+        ],
+      },
+    });
+
     return NextResponse.json(consultants);
   } catch (error) {
     return NextResponse.json({ error: "Erreur lors de la récupération des consultants" }, { status: 500 });

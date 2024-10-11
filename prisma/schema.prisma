@@ -14,17 +14,20 @@ datasource db {
 }
 
 model User {
-    id            String       @id @default(cuid())
-    email         String       @unique
-    name          String?
-    emailVerified Boolean?
-    username      String?
-    image         String?
-    accounts      Account[]
-    sessions      Session[]
-    createdAt     DateTime     @default(now())
-    updatedAt     DateTime     @updatedAt
-    familyTrees   FamilyTree[]
+    id             String       @id @default(cuid())
+    email          String       @unique
+    emailVerified  Boolean?
+    username       String?
+    image          String?
+    accounts       Account[]
+    sessions       Session[]
+    createdAt      DateTime     @default(now())
+    updatedAt      DateTime     @updatedAt
+    familyTrees    FamilyTree[]
+    name           String?
+    birthdate      DateTime?
+    lieu_naissance String?
+    pathologie     String?
 }
 
 model Consultant {
