@@ -1,12 +1,9 @@
-import { DarkThemeToggle } from "flowbite-react";
 import Link from "next/link";
-import { Button } from "flowbite-react";
-
 
 export default function Home() {
   return (
     <main className="flex min-h-screen items-center justify-center gap-2">
-      <Link href="/user/profile">
+      <Link href="/trees">
         <div className="flex flex-col items-center mt-5 cursor-pointer">
           <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center overflow-hidden transition-transform transform hover:scale-105">
             <img

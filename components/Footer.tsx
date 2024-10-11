@@ -1,17 +1,15 @@
-"use client"
-
-import {Footer as FlowbiteFooter} from 'flowbite-react';
+import {Footer as FlowbiteFooter, FooterCopyright, FooterLinkGroup, FooterLink} from 'flowbite-react';
 
 export default async function Footer() {
   return (
     <FlowbiteFooter container>
-      <FlowbiteFooter.Copyright href="/" by="GénéaSanté" year={2024} />
-      <FlowbiteFooter.LinkGroup>
-        <FlowbiteFooter.Link href="#">Mention Légale</FlowbiteFooter.Link>
-        <FlowbiteFooter.Link href="pdp">Protection des données</FlowbiteFooter.Link>
-        <FlowbiteFooter.Link href="#">Licensing</FlowbiteFooter.Link>
-        <FlowbiteFooter.Link href="#">Contact</FlowbiteFooter.Link>
-      </FlowbiteFooter.LinkGroup>
+      <FooterCopyright href="/" by="GénéaSanté" year={2024} />
+      <FooterLinkGroup>
+        <FooterLink href="#">Mention Légale</FooterLink>
+        <FooterLink href="pdp">Protection des données</FooterLink>
+        <FooterLink href="#">Licensing</FooterLink>
+        <FooterLink href="#">Contact</FooterLink>
+      </FooterLinkGroup>
     </FlowbiteFooter>
   );
 };
